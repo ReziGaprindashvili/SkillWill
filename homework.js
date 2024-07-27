@@ -1,70 +1,66 @@
 // 1
-function calculate(a, b){
-    if(typeof a === "string"){
-    return false
+function calculate(a, b, ...args){
+    let multiplied = 1
+    const sumResult = a + b
+    for(const num of args){
+        const result = multiplied *= num
     }
-
-    if(typeof b === "string"){
-    return false
-    }
-
-    return a + b
+    const results = [sumResult, multiplied]
 }
-
-console.log(calculate(4, 6))
-console.log(calculate("Rezi", 6))
-console.log(calculate("110", 6))
 
 // 2
-function fahrToTemp(fahr){
-    if(typeof fahr === "number"){
-        return fahr * 1.8
-    } else {
-        return false
-    }
 
+const user = {
+    firstName: 'James',
+    lastName: 'Bond',
+    profile:{
+        age: 40,
+        nickname: '007'
+    },
+    banks: ['liberty', 'saq', 
+        {address : {
+            city: 'Tbilisi'
+    }}]
 }
 
-const temp = fahrToTemp(10)
-const fakeTemp = fahrToTemp("Rezi")
-console.log(temp)
-console.log(fakeTemp)
+const {banks:[ , , {address: {city}}]} = user 
 
-// 3 
 
-function betterCalculate(a, b, operation){
-    if(typeof a === "string"){
-        return false
-    }
 
-    if(typeof b === "string"){
-        return false
-    }
-    if(operation === "+"){
-        return a + b
-    }
-
-    if(operation === "-"){
-        return a - b
-    }
-
-    if(operation === ""){
-        return a * b
-    }
-
-    if(operation === "/"){
-        return a / b
-    } 
+function myCity({banks:[ , , {address : {city}}]}){
+    console.log(city)
 }
 
-const calculation1 = betterCalculate(4, 2, "+")
-const calculation2 = betterCalculate(4, 2, "-")
-const calculation3 = betterCalculate(4, 2, "*")
-const calculation4 = betterCalculate(4, 2, "/")
-const calculation5 = betterCalculate("Rezi", 3, "+")
+myCity(user)
 
-console.log(calculation1)
-console.log(calculation2)
-console.log(calculation3)
-console.log(calculation4)
-console.log(calculation5)
+
+//3
+
+const user2 = {
+        firstName: 'James',
+        lastName: 'Bond',
+        profile:{
+            age: 40,
+            nickname: '007'
+        }
+    }
+
+
+function deepCloneObject(originalObject) {
+    if (originalObject === null || typeof originalObject !== 'object') {
+        return originalObject;
+    }
+
+    const newObject = Array.isArray(originalObject) ? [] : {};
+
+    for (const key in originalObject) {
+        if (originalObject.hasOwnProperty(key)) {
+            newObject[key] = deepCloneObject(originalObject[key]);
+        }
+    }
+
+    return newObject;
+}
+        
+const clonedUser2 = deepCloneObject(user2);
+console.log(clonedUser2);
