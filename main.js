@@ -225,45 +225,86 @@ const calculatePercentage = (numbers) => {
 
 // console.log(capitalWords(["hello_World", "agent_james_bond", "world_cup_sports_association"]))
 
-const person = {
-    name: 'James',
-    address: {
-        tbilisi: {
-            district: {
-                street: "Tamarashvili"
-            }
-        }
-    },
-    friends: [
-        {closeFriend: {name: "Giga"}},
-        {closeFriend: {name: "Temo"}}
-    ]
-}
+// const person = {
+//     name: 'James',
+//     address: {
+//         tbilisi: {
+//             district: {
+//                 street: "Tamarashvili"
+//             }
+//         }
+//     },
+//     friends: [
+//         {closeFriend: {name: "Giga"}},
+//         {closeFriend: {name: "Temo"}}
+//     ]
+// }
 
-const deepCopy = (obj) => {
-    const result = {}
-    for(const fn in obj)
-        if(typeof obj[fn] === 'object'){
+// const deepCopy = (obj) => {
+//     const result = {}
+//     for(const fn in obj)
+//         if(typeof obj[fn] === 'object'){
 
-            if(Array.isArray(obj[fn])){
-                // Array
-                result[fn] = obj[fn].map((el) => deepCopy(el))
-            } else {
-                // Object
-                result[fn] = deepCopy(obj[fn])
-            }
+//             if(Array.isArray(obj[fn])){
+//                 // Array
+//                 result[fn] = obj[fn].map((el) => deepCopy(el))
+//             } else {
+//                 // Object
+//                 result[fn] = deepCopy(obj[fn])
+//             }
 
-        } else {
-            result[fn] = obj[fn]
-        }
+//         } else {
+//             result[fn] = obj[fn]
+//         }
 
-        return result
-}
+//         return result
+// }
 
-const person2 = deepCopy(person)
-person2.name = "Jango"
-person2.address.tbilisi.district.street = 'Marjanishvili'
-person2.friends[0].closeFriend.name = 'Nino'
+// const person2 = deepCopy(person)
+// person2.name = "Jango"
+// person2.address.tbilisi.district.street = 'Marjanishvili'
+// person2.friends[0].closeFriend.name = 'Nino'
 
-console.log(person)
-console.log(person2)
+// console.log(person)
+// console.log(person2)
+
+
+// const bodyEl = document.body
+
+
+// console.log(bodyEl.lastElementChild.previousElementSibling)
+
+// const team = document.getElementById("team")
+// const members = document.getElementsByClassName("member")
+// const tagMembers = document.getElementsByTagName("h1")
+
+// const team = document.querySelector("#team")
+// const classTeam = document.querySelectorAll(".member")
+
+// console.log(members)
+
+const divEl = document.createElement("div")
+const h1El = document.createElement("h1")
+const textEl = document.createTextNode("Hello there")
+
+const h1E2 = document.createElement("h2")
+const textE2 = document.createTextNode("Welcome Home")
+
+h1E2.classList.add("custom")
+h1El.setAttribute("id", "myId")
+ 
+h1El.append(textEl)
+h1E2.append(textE2)
+
+divEl.append(h1El, h1E2)
+document.body.append(divEl)
+
+const btn = document.getElementById('mybtn')
+
+btn.addEventListener("click", (e) => {
+    e.target.style.color = 'white'
+    e.target.style.background = 'red'
+
+    h1El.style.display = 'none'
+    h1E2.style.display = 'none'
+})
