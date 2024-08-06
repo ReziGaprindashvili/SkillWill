@@ -1,66 +1,115 @@
+// Lection 6
+
+// 1
+
+function toggleModal(){
+    const modalContainer = document.querySelector('#modalContainer')
+    modalContainer.classList.toggle('hidden')
+}
+
+// 2
+
+let redeemBtn = document.querySelector('#redeemButton')
+
+function changeBackgroundColor(){
+    const colorInput = document.getElementByID('colorInput').value.toLowerCase()
+    const validColors = ["blue", "red", "black", "white", "green"]
+    if(validColors.includes(colorInput)){
+        document.body.style.backgroundColor = colorInput
+    } else {
+        alert('Invalid color, Please enter one of these colors: blue, red, black, white, green.')
+    }
+}
+redeemBtn.addEventListener('click', changeBackgroundColor())
+
+
+// 3
+
+let calculateButton = document.getElementById('calculateButton')
+let averageResult = document.getElementById('averageResult')
+
+calculateButton.addEventListener('click', calculateAverage())
+
+function calculateAverage() {
+    const numberInput = document.getElementByID('numberInput').value
+    const numbersArray = numberInput.split(':').map(Number)
+
+    if(numbersArray.length === 0) {
+        averageResult.textContent = 'No numbers entered'
+        return
+    }
+
+
+    const sum = numbersArray.reduce((total, num) => total + num, 0)
+    const average = sum / numbersArray.length
+
+    averageResult.textContent = `Average: ${average.toFixed(2)}`
+}
+
+
 // Lection 5
 
 // 1
 
-const divHideButton = document.querySelector("#btn")
-const divv = document.querySelector("#divv")
+// const divHideButton = document.querySelector("#btn")
+// const divv = document.querySelector("#divv")
 
-divHideButton.addEventListener("click", () => {
-    divv.style.display = 'none'
-})
+// divHideButton.addEventListener("click", () => {
+//     divv.style.display = 'none'
+// })
 
-// 2
+// // 2
 
-const div1 = document.createElement("div")
-const h2 = document.createElement("h2")
-const text1 = document.createTextNode("Gandalf")
-const a = document.createElement("a")
-const text2 = document.createTextNode("Go to Profile")
-div1.setAttribute("id", "card")
-a.setAttribute("href", "#")
-h2.append(text1)
-a.append(text2)
-div1.append(h2, a)
-console.log(div1)
+// const div1 = document.createElement("div")
+// const h2 = document.createElement("h2")
+// const text1 = document.createTextNode("Gandalf")
+// const a = document.createElement("a")
+// const text2 = document.createTextNode("Go to Profile")
+// div1.setAttribute("id", "card")
+// a.setAttribute("href", "#")
+// h2.append(text1)
+// a.append(text2)
+// div1.append(h2, a)
+// console.log(div1)
 
-// 3
+// // 3
 
-let score = 0
+// let score = 0
 
-function questionAppear(question, answers, correctAnswerIndex){
-    const questionElement = document.querySelector("#question")
-    question.textContent = question
+// function questionAppear(question, answers, correctAnswerIndex){
+//     const questionElement = document.querySelector("#question")
+//     question.textContent = question
 
-    const answerElements = document.querySelectorAll(".answer")
-    answerElements = answers.forEach((element, index) => {
-        element.textContent = answers[index]
-        element.classList.remove("correct", "incorrect")
-    })
-}
+//     const answerElements = document.querySelectorAll(".answer")
+//     answerElements = answers.forEach((element, index) => {
+//         element.textContent = answers[index]
+//         element.classList.remove("correct", "incorrect")
+//     })
+// }
 
-function answerChecker(selectedElement) {
-    const answerElements = document.querySelectorAll(".answer")
-    const selectedAnswerIndex = Array.from(answerElements).indexOf(selectedElement)
+// function answerChecker(selectedElement) {
+//     const answerElements = document.querySelectorAll(".answer")
+//     const selectedAnswerIndex = Array.from(answerElements).indexOf(selectedElement)
 
-    if(selectedAnswerIndex === correctAnswerIndex){
-        score++
-        selectedElement.classList.add("correct")
-    } else {
-        selectedElement.classList.add("incorrect")
-    }
-    scoreUpdater()
-}
+//     if(selectedAnswerIndex === correctAnswerIndex){
+//         score++
+//         selectedElement.classList.add("correct")
+//     } else {
+//         selectedElement.classList.add("incorrect")
+//     }
+//     scoreUpdater()
+// }
 
-function scoreUpdater(){
-    const scoreElement = document.querySelector("#score")
-    scoreElement.textContent = `Score : ${score}`
-}
+// function scoreUpdater(){
+//     const scoreElement = document.querySelector("#score")
+//     scoreElement.textContent = `Score : ${score}`
+// }
 
-const question = "Which is id selector?"
-const answers = ['.', '*', '#',]
-const correctAnswerIndex = 3
+// const question = "Which is id selector?"
+// const answers = ['.', '*', '#',]
+// const correctAnswerIndex = 3
 
-questionAppear(question, answers, correctAnswerIndex)
+// questionAppear(question, answers, correctAnswerIndex)
 
 
 

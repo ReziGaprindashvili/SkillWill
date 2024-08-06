@@ -283,28 +283,140 @@ const calculatePercentage = (numbers) => {
 
 // console.log(members)
 
-const divEl = document.createElement("div")
-const h1El = document.createElement("h1")
-const textEl = document.createTextNode("Hello there")
+// const divEl = document.createElement("div")
+// const h1El = document.createElement("h1")
+// const textEl = document.createTextNode("Hello there")
 
-const h1E2 = document.createElement("h2")
-const textE2 = document.createTextNode("Welcome Home")
+// const h1E2 = document.createElement("h2")
+// const textE2 = document.createTextNode("Welcome Home")
 
-h1E2.classList.add("custom")
-h1El.setAttribute("id", "myId")
+// h1E2.classList.add("custom")
+// h1El.setAttribute("id", "myId")
  
-h1El.append(textEl)
-h1E2.append(textE2)
+// h1El.append(textEl)
+// h1E2.append(textE2)
 
-divEl.append(h1El, h1E2)
-document.body.append(divEl)
+// divEl.append(h1El, h1E2)
+// document.body.append(divEl)
 
-const btn = document.getElementById('mybtn')
+// const btn = document.getElementById('mybtn')
 
-btn.addEventListener("click", (e) => {
-    e.target.style.color = 'white'
-    e.target.style.background = 'red'
+// btn.addEventListener("click", (e) => {
+//     e.target.style.color = 'white'
+//     e.target.style.background = 'red'
 
-    h1El.style.display = 'none'
-    h1E2.style.display = 'none'
-})
+//     h1El.style.display = 'none'
+//     h1E2.style.display = 'none'
+// })
+
+
+// CALLBACKS
+
+// setTimeout(() => {
+//     console.log('started')
+// }, 3000)
+
+// function dance(action, callback){
+//     console.log(action)
+//     callback()
+// }
+
+// dance('this is a long dance', () => {
+//     console.log('Applaud')
+// })
+
+//PROMISES (THEN, CATCH)
+
+// const promiseResponse = new Promise((resolve, reject) => {
+//     if(Math.random() > 0.1){
+//         resolve('this is true')
+//     } else {
+//         reject('this is false')
+//     }
+// })
+// promiseResponse
+//     .then((res) => console.log(res))
+//     .catch(err => console.log(err))
+//     .finally(() => console.log('this was tuff'))
+
+// function makeToys(){
+//     return new Promise((resolve, reject) => {
+//         if(Math.random() > 0.1){
+//             resolve('Defected')
+//         } else {
+//             reject('Undefected')
+//         }
+//     })
+// }
+
+// function sellToys(status){
+//    return new Promise((resolve, reject) => {
+//     if(status === 'Undefected'){
+//         if(Math.random() > 0.7){
+//             resolve('Toy has been sold')
+//         } else {
+//             reject('Toy was unsuccessful')
+//         }
+//     }   
+// })
+// }
+// makeToys()
+//     .then((status) => sellToys(status))
+//     .then((res) => console.log(res))
+//     .catch(err => console.log(err))
+
+// ASYNC / AWAIT
+
+// async function sum(){
+//     return 1 + 1
+// }
+
+// async function makeToys(){
+//     if(Math.random() > 0.1){
+//         return 'Defected'
+//     } else {
+//         return 'Undefected'
+//     }
+// }
+
+// async function sellToys(status){
+//     if(status === 'Undefected'){
+//         if(Math.random() > 0.7){
+//             return 'Toy has been sold'
+//         } else {
+//             return 'Toy was unsuccessful' 
+//         }
+//     }   
+// }
+
+// async function proimisfy() {
+//     try {
+//         const status = await makeToys()
+//         const result = await sellToys(status)
+//         console.log(result)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+// EVENT LOOP (last in first out(LIFO)) 
+
+// function bar(){
+//     console.log('Barr')
+// }
+
+// function baz() {
+//     bar()
+// }
+
+// function foo() {
+//     baz()
+// }
+
+console.log('start')
+
+setTimeout(() => {
+    console.log('timeout result')
+}, 0 )
+
+console.log('end')

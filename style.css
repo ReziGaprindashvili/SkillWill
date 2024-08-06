@@ -29,3 +29,37 @@
 .correct {
     background-color: green;
 }
+
+.open-button {
+    background-color: cyan;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+
+}
+
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0.2);
+    max-width: 80%;
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: block;
+}

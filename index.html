@@ -5,6 +5,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button class="open-button" onclick="toggleModal()">Open Modal</button>
+    <div class="modal-container" id="modalContainer">
+        <div class="modal">
+            <h2>Modal Content</h2>
+            <p>This modal has black background</p>
+            <button onclick="toggleModal()">Close Modal</button>
+        </div>
+    </div>
+
+    <input type="text" id="colorInput">
+    <button id="redeemButton">Redeem</button>
+    
+    <input type="text" id="numberInput">
+    <button id="calculateButton">Average</button>
+    
+    <script src="./gia.js"></script>
+    
+    
     <!-- <h1>Frodo</h1>
     <h2>Gamdalf</h2>
     <head>Sam</head>
@@ -15,11 +33,11 @@
         <h1 class="member">Gimli</h1>
     </div> -->
     <!-- <button id="mybtn">CLICK ME</button> -->
-    <button id="btn">HIDE TEXT</button>
+    <!-- <button id="btn">HIDE TEXT</button>
     <div id="divv">Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Quas delectus dolore excepturi incidunt natus tempore quaerat error maiores est!
         Eligendi voluptatum ad, tempore nemo vero excepturi illum harum consectetur aliquam?</div>
-    <script src="./homework.js"></script>
+    
 
     <div class="quizContainer">
         <div class="question" id="question"></div>
