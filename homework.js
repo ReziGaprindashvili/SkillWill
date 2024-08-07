@@ -1,8 +1,8 @@
 // Lection 7
 
-const makeTimeout = document.getElementById("makeTimeout").value
-const sellTimeout = document.getElementById("sellTimeout").value
-const deliverTimeout = document.getElementById("deliverTimeout").value
+const makeTimeout = document.getElementById("makeTimeout").value;
+const sellTimeout = document.getElementById("sellTimeout").value;
+const deliverTimeout = document.getElementById("deliverTimeout").value;
 
 function makeToys(){
     return new Promise((resolve,reject)  => {
