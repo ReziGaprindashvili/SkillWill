@@ -1,50 +1,145 @@
+// Lection 7
+
+
+const sellTimeout = document.getElementById("sellTimeout").value
+const deliverTimeout = document.getElementById("deliverTimeout").value
+
+function makeToys(){
+    const makeTimeout = document.getElementById("makeTimeout").value
+    return new Promise((resolve,reject)  => {
+        if(Math.random() > 0.1){
+            resolve ('Undefected')
+        } else {
+            reject ('Defected') 
+        }
+    })
+}
+
+
+
+function sellToys(status){
+    return new Promise((resolve, reject) => {
+        if(status === 'Undefected'){
+            if(Math.random() > 0.7){
+                resolve ('Toy has been sold')
+            } else {
+                reject ('Toy was unsuccessful') 
+            }
+        }   
+    })
+    
+}
+
+function deliverToys(info){
+    return new Promise((resolve, reject) => {
+        if(info === 'Toy has been sold'){
+            if(Math.random() > 0.8){
+                resolve ('Toy was delivered')
+            } else {
+                reject ('Toy was not delivered') 
+            }
+        }
+    })
+}
+
+
+makeToys()
+    .then((status) => sellToys(status))
+    .then((info) => deliverToys(info))
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
+
+// async function proimisfy() {
+//     try {
+//         const status = await makeToys()
+//         const result = await sellToys(status)
+//         console.log(result)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+
+// async function makeToys(){
+//         if(Math.random() > 0.1){
+//             return 'Defected'
+//         } else {
+//             return 'Undefected'
+//         }
+//     }
+    
+//     async function sellToys(status){
+//         if(status === 'Undefected'){
+//             if(Math.random() > 0.7){
+//                 return 'Toy has been sold'
+//             } else {
+//                 return 'Toy was unsuccessful' 
+//             }
+//         }   
+//     }
+    
+//     async function proimisfy() {
+//         try {
+//             const status = await makeToys()
+//             const result = await sellToys(status)
+//             console.log(result)
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+
+// console.log(proimisfy())
+
+
+
+
 // Lection 6
 
 // 1
 
-function toggleModal(){
-    const modalContainer = document.querySelector('#modalContainer')
-    modalContainer.classList.toggle('hidden')
-}
+// function toggleModal(){
+//     const modalContainer = document.querySelector('#modalContainer')
+//     modalContainer.classList.toggle('hidden')
+// }
 
 // 2
 
-let redeemBtn = document.querySelector('#redeemButton')
+// let redeemBtn = document.querySelector('#redeemButton')
 
-function changeBackgroundColor(){
-    const colorInput = document.getElementByID('colorInput').value.toLowerCase()
-    const validColors = ["blue", "red", "black", "white", "green"]
-    if(validColors.includes(colorInput)){
-        document.body.style.backgroundColor = colorInput
-    } else {
-        alert('Invalid color, Please enter one of these colors: blue, red, black, white, green.')
-    }
-}
-redeemBtn.addEventListener('click', changeBackgroundColor())
+// function changeBackgroundColor(){
+//     const colorInput = document.getElementByID('colorInput').value.toLowerCase()
+//     const validColors = ["blue", "red", "black", "white", "green"]
+//     if(validColors.includes(colorInput)){
+//         document.body.style.backgroundColor = colorInput
+//     } else {
+//         alert('Invalid color, Please enter one of these colors: blue, red, black, white, green.')
+//     }
+// }
+// redeemBtn.addEventListener('click', changeBackgroundColor())
 
 
 // 3
 
-let calculateButton = document.getElementById('calculateButton')
-let averageResult = document.getElementById('averageResult')
+// let calculateButton = document.getElementById('calculateButton')
+// let averageResult = document.getElementById('averageResult')
 
-calculateButton.addEventListener('click', calculateAverage())
+// calculateButton.addEventListener('click', calculateAverage())
 
-function calculateAverage() {
-    const numberInput = document.getElementByID('numberInput').value
-    const numbersArray = numberInput.split(':').map(Number)
+// function calculateAverage() {
+//     const numberInput = document.getElementByID('numberInput').value
+//     const numbersArray = numberInput.split(':').map(Number)
 
-    if(numbersArray.length === 0) {
-        averageResult.textContent = 'No numbers entered'
-        return
-    }
+//     if(numbersArray.length === 0) {
+//         averageResult.textContent = 'No numbers entered'
+//         return
+//     }
 
 
-    const sum = numbersArray.reduce((total, num) => total + num, 0)
-    const average = sum / numbersArray.length
+//     const sum = numbersArray.reduce((total, num) => total + num, 0)
+//     const average = sum / numbersArray.length
 
-    averageResult.textContent = `Average: ${average.toFixed(2)}`
-}
+//     averageResult.textContent = `Average: ${average.toFixed(2)}`
+// }
 
 
 // Lection 5

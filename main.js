@@ -413,10 +413,10 @@ const calculatePercentage = (numbers) => {
 //     baz()
 // }
 
-console.log('start')
+// console.log('start')
 
-setTimeout(() => {
-    console.log('timeout result')
-}, 0 )
+// setTimeout(() => {
+//     console.log('timeout result')
+// }, 0 )
 
-console.log('end')
+// console.log('end')
