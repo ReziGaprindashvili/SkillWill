@@ -420,3 +420,54 @@ const calculatePercentage = (numbers) => {
 // }, 0 )
 
 // console.log('end')
+
+// NORMAL CB
+// function repeat(str, x, cb){
+//     let result = str 
+
+//     for(let i = 0; i < x; i++){
+//         result = action(result)
+//     }
+
+
+//     return result
+// }
+
+// const a = repeat('James', 4, (str) => `! ${str} !`)
+// const b = repeat('James', 4, (str) => `* ${str} *`)
+// const c = repeat('Peter', 4, (str) => `# ${str} #`)
+
+// console.log(a)
+// console.log(b)
+// console.log(c)
+
+// REVURSIVE CB
+// function repeatRecursive(str, x, cb){
+//     if(x === 0) return str
+//     return repeatRecursive(cb(str), x - 1, cb)
+// }
+
+// const a = repeatRecursive('James', 4, (str) => `! ${str} !`)
+// const b = repeatRecursive('James', 4, (str) => `* ${str} *`)
+// const c = repeatRecursive('Peter', 4, (str) => `# ${str} #`)
+
+// console.log(a)
+// console.log(b)
+// console.log(c)
+
+function task(num){
+    return new Promise((resolve, reject) => {
+        
+        if(typeof num !== 'number'){
+            reject('error')
+        }
+
+        if(num % 2 === 1){
+            setTimeout(() => resolve('odd'), 1000)
+        }
+
+        if(num % 2 === 0){
+            setTimeout(() => reject('even'), 2000)
+        }
+    })
+}

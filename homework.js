@@ -1,13 +1,9 @@
 // Lection 7
 
-const makeTimeout = document.getElementById("makeTimeout").value;
-const sellTimeout = document.getElementById("sellTimeout").value;
-const deliverTimeout = document.getElementById("deliverTimeout").value;
-
-function makeToys(){
+function makeToys(makeTime){
     return new Promise((resolve,reject)  => {
         if(Math.random() > 0.1){
-            resolve ('Undefected')
+            setTimeout(() => resolve ('Undefected'), makeTime * 1000)
         } else {
             reject ('Defected') 
         }
@@ -16,11 +12,11 @@ function makeToys(){
 
 
 
-function sellToys(status){
+function sellToys(status, sellTime){
     return new Promise((resolve, reject) => {
         if(status === 'Undefected'){
             if(Math.random() > 0.7){
-                resolve ('Toy has been sold')
+                setTimeout(() => resolve ('Toy has been sold'), sellTime * 1000)
             } else {
                 reject ('Toy was unsuccessful') 
             }
@@ -29,11 +25,11 @@ function sellToys(status){
     
 }
 
-function deliverToys(info){
+function deliverToys(info, deliverTime){
     return new Promise((resolve, reject) => {
         if(info === 'Toy has been sold'){
             if(Math.random() > 0.8){
-                resolve ('Toy was delivered')
+                setTimeout(() => resolve ('Toy was delivered'), deliverTime * 1000)
             } else {
                 reject ('Toy was not delivered') 
             }
@@ -42,9 +38,9 @@ function deliverToys(info){
 }
 
 
-makeToys()
-    .then((status) => sellToys(status))
-    .then((info) => deliverToys(info))
+makeToys(4)
+    .then((status) => sellToys(status, 4))
+    .then((info) => deliverToys(info, 4))
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
 
