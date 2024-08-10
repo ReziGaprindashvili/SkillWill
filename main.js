@@ -455,19 +455,34 @@ const calculatePercentage = (numbers) => {
 // console.log(b)
 // console.log(c)
 
-function task(num){
-    return new Promise((resolve, reject) => {
+// function task(num){
+//     return new Promise((resolve, reject) => {
         
-        if(typeof num !== 'number'){
-            reject('error')
-        }
+//         if(typeof num !== 'number') reject('error')
+//         if(num % 2 === 1) setTimeout(() => resolve('odd'), 1000)
+//         if(num % 2 === 0) setTimeout(() => reject('even'), 2000)
+//     })
+// }
+// task(7)
+//     .then(res => console.log(res))
+//     .catch(err => console.log(err))
 
-        if(num % 2 === 1){
-            setTimeout(() => resolve('odd'), 1000)
-        }
+// fetch('https://jsonplaceholder.typicode.com/users')
+//     .then(res => res.json())
+//     .then(res => console.log(res))  
+//     .catch(err => console.log(err))
 
-        if(num % 2 === 0){
-            setTimeout(() => reject('even'), 2000)
+async function fetchData() {
+    try {
+        const rawData = await fetch('https://jsonplaceholder.typicode.com/users')
+        if(!rawData.ok){ 
+            throw Error('Not good request')
         }
-    })
+        const data = await rawData.json()
+        console.log(data)
+        
+    } catch (error) {
+        console.log(error.message)
+    }
 }
+fetchData()
